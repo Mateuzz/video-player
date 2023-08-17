@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    --bar-current-time: rgb(255, 40, 40);
+    --bar-loaded: rgba(120, 140, 140, 0.5);
+    --bar-non-loaded: rgba(50, 50, 50, 0.5);
+    --video-controls-bg: rgba(00, 00, 00, 0.2);
+    --video-controls-bg-bottom: rgba(00, 00, 00, 0.4);
+
+    background-color: #222;
+}
+
+video {
+    width: 100%;
+}
+
+button {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+.video-player {
+    width: 800px;
+    height: 450px;
+    margin: 10em auto;
+    position: relative;
+    box-shadow: black 0 0 9px 1px;
+}
+
+.video-controls-box {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.video-time-bar-box {
+    height: 20px;
+    position: relative;
+}
+
+.video-time-bar-box:hover .video-time-bar {
+    height: 7px;
+    translate: 0 1px;
+    transition: all 0.3s ease-in-out;
+    transition-property: translate, height;
+}
+
+.video-time-bar-ball {
+    width: 0;
+    height: 0;
+    border-radius: 20px;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+    transition-property: width, height, bottom, left;
+}
+
+.video-time-bar-box:hover .video-time-bar-ball {
+    width: 20px;
+    height: 20px;
+    left: -12px;
+    bottom: -6px;
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+    transition-property: width, height, bottom, left;
+}
+
+.video-time-bar {
+    background-color: var(--bar-non-loaded);
+    height: 5px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+
+.video-time-bar-box:hover {
+    cursor: pointer;
+}
+
+.video-controls {
+    color: #dadada;
+    background-image: linear-gradient(to bottom, var(--video-controls-bg) 70%, var(--video-controls-bg-bottom));
+    display: flex;
+    height: 2.5em;
+    justify-content: space-between;
+}
+
+.video-controls > div {
+    display: flex;
+    align-items: center;
+}
+
+.video-controls-start {
+    flex: 2;
+}
+
+.video-controls button {
+    font-size: 1.2em;
+    width: 2.5em;
+    background-color: transparent;
+}
+
+.video-controls button:hover {
+    color: white;
+}
+
+.video-volume-slider {
+    display: none;
+    width: 0;
+    margin-right: 1em;
+}
+
+.fa-solid {
+    text-shadow: rgb(0, 0, 100) 0 0 1px;
+}
